@@ -1,0 +1,17 @@
+3) Coding Challenges:
+#include <stdio.h>
+int main()
+{
+int i,j;
+int num;
+for(i=1; i<=20; i++) /*to print table 1 to 20*/
+{
+num= i; /*to initialize number with i ( 1 to 20)*/
+for(j=1; j<=10; j++)
+{
+printf("%3d\t",(num*j));
+}
+printf("\n"); /*after printing table of each number*/
+}
+return 0;
+}
