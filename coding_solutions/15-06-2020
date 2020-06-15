@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct Node {
+int data;
+Node* next;
+};
+void push(Node** head_ref, int new_data)
+{
+Node* new_node = (Node*)malloc(
+sizeof(struct Node));
+// Insert the data
+new_node->data = new_data;
+new_node->next = (*head_ref);
+// Make the new Node as
+// the new head
+(*head_ref) = new_node;
+}
+bool isPalin(int n)
+{
+int d = 0, s = 0;
+int temp = n;
+while (n > 0) {
+d = n % 10;
+s = s * 10 + d;
+n = n / 10;
+}
+return temp == s;
+}
+int sumOfpal(Node* head_1)
+{
+int s = 0;
+Node* ptr = head_1;
+while (ptr != NULL) {
+if (isPalin(ptr->data)) {
+s += ptr->data;
+}
+ptr = ptr->next;
+}
+return s;
+}
+int main()
+{
+Node* head1 = NULL;
+push(&head1, 13);
+push(&head1, 212);
+push(&head1, 22);
+push(&head1, 44);
+push(&head1, 4);
+push(&head1, 3);
+cout << sumOfpal(head1)
+<< endl;
+return 0;
+}
